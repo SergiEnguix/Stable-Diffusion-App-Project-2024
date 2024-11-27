@@ -125,17 +125,21 @@
         const corsProxy = 'http://81.202.41.134:7865/';
         const sdApiUrl = corsProxy + 'http://127.0.0.1:7860';
 
-       // Cargar los checkpoints disponibles
-       async function loadCheckpoints() {
+        // Cargar los checkpoints disponibles
+        async function loadCheckpoints() {
             const checkpointSelect = document.getElementById('checkpoint');
 
             try {
-                const response = await fetch(`${sdApiUrl}/sdapi/v1/sd-models`);
+                const response = await fetch(`${sdApiUrl}/sdapi/v1/sd-models`, {
+                    method: 'GET'
+                });
+
                 if (!response.ok) {
-                    throw new Error(`No se pudieron cargar los modelos: ${response.statusText}`);
+                    throw new Error(`No se pudieron cargar los modelos: ${response.status}`);
                 }
 
-                const models = await response.json();
+                const data = await response.json();
+                const models = data || []; // Asegúrate de que data tenga los modelos que esperas
 
                 // Limpiar opciones previas
                 checkpointSelect.innerHTML = "";
@@ -143,8 +147,8 @@
                 // Añadir los modelos al desplegable
                 models.forEach(model => {
                     const option = document.createElement('option');
-                    option.value = model.title;
-                    option.textContent = model.title;
+                    option.value = model.model_name; // Tomamos el model_name como valor
+                    option.textContent = model.title; // Mostramos el título como texto
                     checkpointSelect.appendChild(option);
                 });
             } catch (error) {
@@ -176,7 +180,10 @@
                 height: height,
                 seed: parseInt(seed),
                 sampler_name: samplingMethod,
-                checkpoint: checkpoint
+                override_settings: {
+                    "sd_model_checkpoint": checkpoint // Establecer el modelo aquí
+                },
+                override_settings_restore_afterwards: false // No restaurar el modelo automáticamente
             };
 
             try {
