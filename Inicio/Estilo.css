@@ -1,0 +1,162 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* Fondo con video/gif */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Contenedor central */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.2rem;
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+button {
+    background: #ff9800;
+    border: 4px solid #3d2500;
+    color: white;
+    padding: 1.1rem 2.1rem;
+    font-size: 1.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 3rem;
+    transition: all 0.3s ease;
+}
+
+#button1 {
+    margin-right: 3.9rem;
+}
+
+#button2 {
+    margin-left: 3.9rem;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    transform: scale(1.15);
+}
+
+/* Texto en la base de la página */
+footer {
+    position: fixed;
+    bottom: 1.5rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos para los formularios flotantes */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: white;
+    z-index: 10;
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal input {
+    width: 100%;
+    max-width: 350px;
+    padding: 0.9rem;
+    margin-bottom: 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modal button {
+    background: #ff9800;
+    border: none;
+    color: white;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 350px;
+    transition: all 0.3s ease;
+}
+
+.modal button:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+
+    /* Botón de cierre (✖) ajustado */
+.modal .close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    margin-top: -0.09rem;
+    margin-right: -0.09rem;
+    top: 0.3rem; /* Espaciado desde la parte superior del modal */
+    right: 0.1rem; /* Espaciado desde el lado derecho */
+    cursor: pointer;
+    max-width: 50px;
+    transition: color 0.3s ease;
+}
+
+.modal .close:hover {
+    color: #ff9800; /* Efecto visual al pasar el ratón */
+}
+
+/* Fondo translúcido para el overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
