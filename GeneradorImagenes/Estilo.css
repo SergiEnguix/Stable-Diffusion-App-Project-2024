@@ -1,0 +1,65 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eef2f7;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(90deg, #4CAF50, #1d976c);
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 1.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+select, input, textarea, button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+#result {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+#output-image {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
