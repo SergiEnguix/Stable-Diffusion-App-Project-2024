@@ -2,32 +2,32 @@
 require_once 'db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
     // Validar campos vacíos
-    if (empty($username) || empty($password)) {
+    if (empty($email) || empty($password)) {
         die("Todos los campos son obligatorios.");
     }
 
-    // Buscar al usuario en la base de datos
-    $query = "SELECT * FROM users WHERE username = ?";
+    // Verificar si el usuario existe
+    $query = "SELECT * FROM users WHERE email = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param('s', $username);
+    $stmt->bind_param('s', $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows === 1) {
-        $user = $result->fetch_assoc();
+    if ($result->num_rows === 0) {
+        die("Credenciales inválidas.");
+    }
 
-        // Verificar la contraseña
-        if (password_verify($password, $user['password'])) {
-            echo "Inicio de sesión exitoso. ¡Bienvenido, " . htmlspecialchars($user['username']) . "!";
-        } else {
-            echo "Contraseña incorrecta.";
-        }
+    $user = $result->fetch_assoc();
+
+    // Verificar la contraseña
+    if (password_verify($password, $user['password'])) {
+        echo "Inicio de sesión exitoso. Bienvenido, " . htmlspecialchars($user['username']) . "!";
     } else {
-        echo "El usuario no existe.";
+        die("Credenciales inválidas.");
     }
 
     $stmt->close();
