@@ -7,7 +7,11 @@ async function loadCheckpoints() {
 
     try {
         const response = await fetch(`${sdApiUrl}/sdapi/v1/sd-models`, {
-            method: 'GET'
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Origin': 'https://sergien-stablediffusion-app-b5cd08957a3c.herokuapp.com',
+            },
         });
 
         if (!response.ok) {
@@ -67,6 +71,7 @@ document.getElementById('image-form').addEventListener('submit', async function 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Origin': 'https://sergien-stablediffusion-app-b5cd08957a3c.herokuapp.com',
             },
             body: JSON.stringify(requestData)
         });
