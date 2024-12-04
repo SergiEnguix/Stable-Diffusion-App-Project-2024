@@ -19,16 +19,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (pg_num_rows($result) === 0) {
-        die("Credenciales inválidas.");
+        // Usuario no encontrado
+        header("Location: inicio_NotAuth.php?error=Usuario o contraseña incorrectos");
+        exit();
     }
 
     $user = pg_fetch_assoc($result);
 
     // Verificar la contraseña
     if (password_verify($password, $user['password'])) {
-        echo "Inicio de sesión exitoso. Bienvenido, " . htmlspecialchars($user['username']) . "!";
+        // Login exitoso, redirigir a inicio_Auth.php
+        session_start();
+        $_SESSION['user'] = $user['username']; // Guardar usuario en la sesión
+        header("Location: inicio_Auth.php");
+        exit();
     } else {
-        die("Credenciales inválidas.");
+        // Contraseña incorrecta
+        header("Location: inicio_NotAuth.php?error=Usuario o contraseña incorrectos");
+        exit();
     }
 
     pg_free_result($result);
