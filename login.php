@@ -2,17 +2,17 @@
 require_once 'db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['email']);
+    $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
     // Validar campos vacíos
-    if (empty($email) || empty($password)) {
+    if (empty($username) || empty($password)) {
         die("Todos los campos son obligatorios.");
     }
 
     // Verificar si el usuario existe
-    $query = "SELECT * FROM users WHERE email = $1";
-    $result = pg_query_params($conn, $query, array($email));
+    $query = "SELECT * FROM users WHERE username = $1";
+    $result = pg_query_params($conn, $query, array($username));
 
     if (!$result) {
         die("Error al ejecutar la consulta: " . pg_last_error());
