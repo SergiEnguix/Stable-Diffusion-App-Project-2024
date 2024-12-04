@@ -17,31 +17,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Las contraseñas no coinciden.");
     }
 
-    // Verificar si el usuario ya existe
-    $query = "SELECT * FROM users WHERE username = ? OR email = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param('ss', $username, $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    // Verificar si el usuario o correo electrónico ya están registrados
+    $query = "SELECT * FROM users WHERE username = $1 OR email = $2";
+    $result = pg_query_params($conn, $query, array($username, $email));
 
-    if ($result->num_rows > 0) {
+    if (pg_num_rows($result) > 0) {
         die("El usuario o correo electrónico ya están registrados.");
     }
 
     // Insertar el usuario en la base de datos
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-    $insert_query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
-    $insert_stmt = $conn->prepare($insert_query);
-    $insert_stmt->bind_param('sss', $username, $email, $hashed_password);
+    $insert_query = "INSERT INTO users (username, email, password, created_at) VALUES ($1, $2, $3, NOW())";
+    $insert_result = pg_query_params($conn, $insert_query, array($username, $email, $hashed_password));
 
-    if ($insert_stmt->execute()) {
+    if ($insert_result) {
         echo "Registro exitoso. ¡Ahora puedes iniciar sesión!";
     } else {
-        echo "Error al registrar usuario: " . $conn->error;
+        echo "Error al registrar usuario: " . pg_last_error($conn);
     }
 
-    $stmt->close();
-    $insert_stmt->close();
-    $conn->close();
+    pg_free_result($result); // Liberar el resultado de la consulta
+    pg_free_result($insert_result); // Liberar el resultado de la inserción
+    pg_close($conn); // Cerrar la conexión a la base de datos
 }
 ?>
+

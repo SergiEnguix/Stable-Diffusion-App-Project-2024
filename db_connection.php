@@ -12,10 +12,11 @@ $password = $dbParts['pass'];
 $dbname = ltrim($dbParts['path'], '/');
 
 // Crear la conexión a PostgreSQL
-$conn = new mysqli($host, $user, $password, $dbname, $port);
+$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 
 // Comprobar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+if (!$conn) {
+    die("Conexión fallida: " . pg_last_error());
 }
 ?>
+

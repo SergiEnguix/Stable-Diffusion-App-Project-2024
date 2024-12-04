@@ -11,17 +11,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Verificar si el usuario existe
-    $query = "SELECT * FROM users WHERE email = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param('s', $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $query = "SELECT * FROM users WHERE email = $1";
+    $result = pg_query_params($conn, $query, array($email));
 
-    if ($result->num_rows === 0) {
+    if (!$result) {
+        die("Error al ejecutar la consulta: " . pg_last_error());
+    }
+
+    if (pg_num_rows($result) === 0) {
         die("Credenciales inválidas.");
     }
 
-    $user = $result->fetch_assoc();
+    $user = pg_fetch_assoc($result);
 
     // Verificar la contraseña
     if (password_verify($password, $user['password'])) {
@@ -30,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Credenciales inválidas.");
     }
 
-    $stmt->close();
-    $conn->close();
+    pg_free_result($result);
+    pg_close($conn);
 }
 ?>
