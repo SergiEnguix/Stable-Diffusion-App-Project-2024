@@ -1,0 +1,9 @@
+{
+    "name": "sergien-stablediffusion-app",
+    "description": "Stable Diffusion Web Application",
+    "type": "project",
+    "require": {
+      "php": "^7.4"
+    }
+  }
+  

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy Stable Diffusion App v1.0</title>
-    <link rel="stylesheet" href="./Estilo.css">
+    <link rel="stylesheet" href="./estilo.css">
 </head>
 
 <body>
@@ -57,7 +57,7 @@
     <!-- Fondo oscuro al abrir los modales -->
     <div id="overlay" class="overlay"></div>
 
-    <script src="Scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,18 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: ./inicio_NotAuth.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de Imágenes con Stable Diffusion</title>
-    <link rel="stylesheet" href="Estilo.css">
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <header>
@@ -55,7 +63,7 @@
         </div>
     </main>
 
-    <script src="./Script.js"></script>
+    <script src="./script.js"></script>
 
 </body>
 </html>
