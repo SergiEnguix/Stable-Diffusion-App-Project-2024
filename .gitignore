@@ -4,7 +4,6 @@
 
 # Archivos generados
 /vendor/
-composer.lock
 
 # Archivos temporales
 *.log
