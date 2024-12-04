@@ -1,4 +1,4 @@
-const corsProxy = 'http://81.202.41.134:7865/';
+const corsProxy = 'https://81.202.41.134:7865/';
 const sdApiUrl = corsProxy + 'http://127.0.0.1:7860';
 
 // Cargar los checkpoints disponibles
