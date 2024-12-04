@@ -1,0 +1,14 @@
+# Ignorar configuraciones locales
+.env
+*.env
+
+# Archivos generados
+/vendor/
+composer.lock
+
+# Archivos temporales
+*.log
+*.cache
+*.bak
+*.tmp
+.DS_Store
