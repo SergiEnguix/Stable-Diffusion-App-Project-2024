@@ -12,7 +12,7 @@ if (!isset($_SESSION['user'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de Imágenes con Stable Diffusion</title>
-    <link rel="stylesheet" href="./estilo.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -63,7 +63,7 @@ if (!isset($_SESSION['user'])) {
         </div>
     </main>
 
-    <script src="./script.js"></script>
+    <script src="javascript.js"></script>
 
 </body>
 </html>
