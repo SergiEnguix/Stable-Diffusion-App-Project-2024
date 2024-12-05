@@ -1,5 +1,5 @@
-const corsProxy = 'https://cors.sergiencorsanywhere.win:7865/';
-const sdApiUrl = corsProxy + 'http://127.0.0.1:7860';
+const corsProxy = 'https://cors.sergiencorsanywhere.win:443/';
+const sdApiUrl = corsProxy + 'http://127.0.0.1:8443';
 
 // Cargar los checkpoints disponibles
 async function loadCheckpoints() {
