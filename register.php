@@ -31,7 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $insert_result = pg_query_params($conn, $insert_query, array($username, $email, $hashed_password));
 
     if ($insert_result) {
-        echo "Registro exitoso. ¡Ahora puedes iniciar sesión!";
+        // Redirigir a inicio_NotAuth.php tras el registro exitoso
+        header("Location: inicio_NotAuth.php");
+        exit(); // Asegurar que se detiene el script tras la redirección
     } else {
         echo "Error al registrar usuario: " . pg_last_error($conn);
     }
@@ -41,4 +43,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     pg_close($conn); // Cerrar la conexión a la base de datos
 }
 ?>
-
