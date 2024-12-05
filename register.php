@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($insert_result) {
         // Redirigir a inicio_NotAuth.php tras el registro exitoso
-        header("Location: inicio_NotAuth.php");
+        header("Location: inicio_NotAuth.php?success=1");
         exit(); // Asegurar que se detiene el script tras la redirección
     } else {
         echo "Error al registrar usuario: " . pg_last_error($conn);
