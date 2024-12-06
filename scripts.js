@@ -12,8 +12,15 @@
         // Detectar si la URL contiene el parámetro 'success'
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('success') && urlParams.get('success') === '1') {
-            // Mostrar el pop-up
-            alert("¡Tu registro se ha realizado con éxito!");
-            // Limpiar el parámetro de la URL para evitar que se muestre repetidamente
+            // Mostrar el pop-up dinámico
+            const alertBox = document.getElementById('alert');
+            alertBox.style.display = 'block';
+
+            // Ocultar el pop-up después de 10 segundos
+            setTimeout(function() {
+                alertBox.style.display = 'none';
+            }, 10000);
+
+            // Eliminar el parámetro 'success' de la URL
             history.replaceState(null, "", window.location.pathname);
         }

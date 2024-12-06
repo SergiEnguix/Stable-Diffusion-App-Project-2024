@@ -17,6 +17,11 @@
 
     <!-- Contenido principal -->
     <div class="container">
+            <!-- Alerta de registro exitoso -->
+        <div id="alert" style="display: none;">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <span id="AlertText">✅ ¡Tu registro se ha realizado con éxito! (Esta ventana se cerrará en 10 segundos) ✅</span>
+        </div>
         <h1>Easy Stable Diffusion App v1.0</h1>
         <button id="button1" onclick="showModal('loginModal')"><b>Iniciar Sesión</b></button>
         <button id="button2" onclick="showModal('registerModal')"><b>Registrarme</b></button>

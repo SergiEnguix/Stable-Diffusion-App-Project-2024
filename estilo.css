@@ -160,3 +160,38 @@ footer {
     background: rgba(0, 0, 0, 0.5);
     z-index: 5;
 }
+
+#alert {
+    padding: 20px;
+    background-color: #4CAF50; /* Verde para éxito */
+    color: white;
+    border: 3px solid #2E7D32;
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation-name: fade-in-out;
+    animation-duration: 2s;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+  
+  @keyframes fade-in-out {
+    0% {opacity: 0;}
+    25% {opacity: 1;}
+    75% {opacity: 1;}
+    100% {opacity: 0;}
+  }
+  
