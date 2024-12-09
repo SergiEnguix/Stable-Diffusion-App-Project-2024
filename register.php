@@ -35,7 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: inicio_NotAuth.php?success=1");
         exit(); // Asegurar que se detiene el script tras la redirección
     } else {
-        echo "Error al registrar usuario: " . pg_last_error($conn);
+        // Redirigir con el parámetro error
+        header("Location: inicio_NotAuth.php?error=1");
+        exit(); // Detener el script tras la redirección
     }
 
     pg_free_result($result); // Liberar el resultado de la consulta
