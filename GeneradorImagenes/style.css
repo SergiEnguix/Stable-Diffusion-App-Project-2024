@@ -101,25 +101,28 @@ button:hover {
     background-color: #ffffff;
     color: #333;
     border: 1px solid #ccc;
-    padding: 5px 15px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 0.9rem;
-    z-index: 1000; /* Asegura que esté visible sobre otros elementos */
+    z-index: 1000; /* Asegura visibilidad */
+    width: 150px; /* Da un ancho fijo para hacer la caja más cuadrada */
+    text-align: center; /* Centra el contenido horizontalmente */
 }
 
 /* Estilo del texto de bienvenida */
 #user-info.top-right span {
-    margin-right: 10px;
+    display: block; /* Hace que ocupe toda la línea */
+    margin-bottom: 10px; /* Espacio debajo del texto */
 }
 
-/* Botón de cerrar sesión en tamaño reducido */
+/* Botón centrado y separado del texto */
 #user-info.top-right button {
     background-color: #ff4d4d;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 3px 8px;
+    padding: 5px 10px;
     font-size: 0.8rem;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -128,4 +131,3 @@ button:hover {
 #user-info.top-right button:hover {
     background-color: #ff1a1a;
 }
-
