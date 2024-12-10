@@ -107,16 +107,18 @@ button:hover {
     font-size: 0.9rem;
     z-index: 1000; /* Asegura visibilidad */
     width: 150px; /* Da un ancho fijo para hacer la caja más cuadrada */
-    text-align: center; /* Centra el contenido horizontalmente */
+    display: flex;
+    flex-direction: column; /* Coloca el texto y botón en columnas */
+    align-items: center; /* Centra horizontalmente el contenido */
+    text-align: center; /* Centra el texto */
 }
 
 /* Estilo del texto de bienvenida */
 #user-info.top-right span {
-    display: block; /* Hace que ocupe toda la línea */
     margin-bottom: 10px; /* Espacio debajo del texto */
 }
 
-/* Botón centrado y separado del texto */
+/* Botón centrado */
 #user-info.top-right button {
     background-color: #ff4d4d;
     color: white;
