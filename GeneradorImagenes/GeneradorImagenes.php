@@ -25,7 +25,7 @@ if (!isset($_SESSION['user'])) {
 <body>
     <header>
         <h1>Generador de Imágenes con Stable Diffusion</h1>
-        <div id="user-info">
+        <div id="user-info" class="top-right">
         <span>Bienvenido, <strong><?php echo htmlspecialchars($_SESSION['user']); ?></strong></span>
         <form action="../logout.php" method="POST" style="display: inline;">
             <button type="submit">Cerrar sesión</button>
