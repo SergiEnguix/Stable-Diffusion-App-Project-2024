@@ -144,28 +144,32 @@ button:hover {
 .seed-input-container {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre el campo y el botón */
+    gap: 5px; /* Espacio entre el campo y el botón */
 }
 
 #seed {
     flex-grow: 1; /* Hace que el campo de texto ocupe todo el espacio disponible */
     padding: 5px;
     font-size: 14px;
-    width: 250px; /* Ajusta el tamaño según sea necesario */
+    min-width: 150px; /* Asegura que el campo tenga un tamaño mínimo */
+    width: 100%; /* Hace que ocupe el 100% del espacio disponible dentro de su contenedor */
+    box-sizing: border-box; /* Asegura que padding no aumente el tamaño del campo */
 }
 
 .reuse-btn {
-    padding: 5px 10px;
-    font-size: 12px;
+    padding: 4px 8px; /* Tamaño reducido del botón */
+    font-size: 12px; /* Tamaño de fuente más pequeño */
     cursor: pointer;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 4px;
     transition: background-color 0.3s ease;
+    min-width: 120px; /* Evita que el botón sea demasiado pequeño */
 }
 
 .reuse-btn:hover {
     background-color: #45a049;
 }
+
 
