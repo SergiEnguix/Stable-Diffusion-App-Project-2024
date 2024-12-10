@@ -133,3 +133,39 @@ button:hover {
 #user-info.top-right button:hover {
     background-color: #ff1a1a;
 }
+
+/* Estilos para contener el campo de semilla y el botón juntos */
+.seed-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; /* Espacio abajo */
+}
+
+.seed-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el campo y el botón */
+}
+
+#seed {
+    flex-grow: 1; /* Hace que el campo de texto ocupe todo el espacio disponible */
+    padding: 5px;
+    font-size: 14px;
+    width: 200px; /* Ajusta el tamaño según sea necesario */
+}
+
+.reuse-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.reuse-btn:hover {
+    background-color: #45a049;
+}
+
