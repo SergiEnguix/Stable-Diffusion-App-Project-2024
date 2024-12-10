@@ -66,8 +66,12 @@ if (!isset($_SESSION['user'])) {
             <label for="height">Alto (px):</label>
             <input type="number" id="height" min="512" max="1536" step="64" value="1024" required>
 
-            <label for="seed">Semilla (Seed):</label>
-            <input type="number" id="seed" min="0" placeholder="Deja en blanco para usar una semilla aleatoria.">
+            <div>
+                <label for="seed">Semilla:</label>
+                <input type="text" id="seed" placeholder="Opcional (-1 para aleatoria)">
+                <button type="button" id="reuse-seed-btn">🔁</button>
+            </div>
+
 
             <button type="submit">Generar Imagen</button>
         </form>
