@@ -1,10 +1,18 @@
 <?php
 session_start();
+
+// Restaurar sesión si hay cookie activa
+if (!isset($_SESSION['user']) && isset($_COOKIE['user'])) {
+    $_SESSION['user'] = $_COOKIE['user'];
+}
+
+// Redirigir al inicio si no hay sesión activa
 if (!isset($_SESSION['user'])) {
-    header("Location: ./inicio_NotAuth.php");
+    header("Location: ../inicio_NotAuth.php");
     exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -17,6 +25,12 @@ if (!isset($_SESSION['user'])) {
 <body>
     <header>
         <h1>Generador de Imágenes con Stable Diffusion</h1>
+        <div id="user-info">
+        <span>Bienvenido, <strong><?php echo htmlspecialchars($_SESSION['user']); ?></strong></span>
+        <form action="../logout.php" method="POST" style="display: inline;">
+            <button type="submit">Cerrar sesión</button>
+        </form>
+    </div>
     </header>
     <main>
         <form id="image-form">

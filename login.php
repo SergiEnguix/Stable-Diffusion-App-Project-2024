@@ -31,11 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Login exitoso, redirigir a inicio_Auth.php
         session_start();
         $_SESSION['user'] = $user['username']; // Guardar usuario en la sesión
-        header("Location: inicio_Auth.php");
+        // Crear cookie para mantener la sesión activa
+        setcookie('user', $user['username'], time() + (30 * 24 * 60 * 60), "/"); // Expira en 30 días
+        header("Location: ./inicio_Auth.php");
         exit();
     } else {
         // Contraseña incorrecta
-        header("Location: inicio_NotAuth.php?error=Usuario o contraseña incorrectos");
+        header("Location: ./inicio_NotAuth.php?error=Usuario o contraseña incorrectos");
         exit();
     }
 

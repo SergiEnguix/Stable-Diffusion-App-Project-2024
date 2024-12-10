@@ -63,3 +63,32 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 8px;
 }
+
+#user-info {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f3f3f3;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#user-info span {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+#user-info button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#user-info button:hover {
+    background-color: #ff1a1a;
+}
