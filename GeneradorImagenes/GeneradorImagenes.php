@@ -45,7 +45,7 @@ if (!isset($_SESSION['user'])) {
             <label for="sampling-method">Método de Muestreo (Sampling Method):</label>
             <select id="sampling-method">
                 <option value="Euler">Euler</option>
-                <option value="Euler a">Euler a</option>
+                <option value="Euler a">Euler a (Recomendado)</option>
                 <option value="LMS">LMS</option>
                 <option value="DPM2">DPM2</option>
                 <option value="DPM2 a">DPM2 a</option>
@@ -55,10 +55,10 @@ if (!isset($_SESSION['user'])) {
             </select>
 
             <label for="steps">Pasos:</label>
-            <input type="number" id="steps" min="10" max="150" value="50" required>
+            <input type="number" id="steps" min="10" max="150" value="28" required>
 
             <label for="cfg">Escala CFG:</label>
-            <input type="number" id="cfg" min="1" max="20" step="0.5" value="7.5" required>
+            <input type="number" id="cfg" min="1" max="20" step="0.5" value="6.5" required>
 
             <label for="width">Ancho (px):</label>
             <input type="number" id="width" min="512" max="1536" step="64" value="1024" required>
@@ -70,7 +70,7 @@ if (!isset($_SESSION['user'])) {
                 <label for="seed">Semilla:</label>
                 <div class="seed-input-container">
                     <input type="text" id="seed" placeholder="Opcional (-1 para aleatoria)">
-                    <button type="button" id="reuse-seed-btn" class="reuse-btn">🔁</button>
+                    <button type="button" id="reuse-seed-btn" class="reuse-btn">🔁 Copiar última semilla 🔁</button>
                 </div>
             </div>
 
