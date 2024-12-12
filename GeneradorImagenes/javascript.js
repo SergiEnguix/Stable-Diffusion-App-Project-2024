@@ -144,4 +144,10 @@ document.getElementById('translate-btn').addEventListener('click', async functio
     const targetLang = 'en'; // Cambia esto según el idioma deseado
 
     const translatedText = await translateText(textToTranslate, targetLang);
+
+    if (translatedText) {
+        document.getElementById('prompt').value = translatedText;
+    } else {
+        alert("Error al traducir el texto.");
+    }
 });
