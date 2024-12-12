@@ -6,7 +6,7 @@ const defaultNegativePrompt = "low quality, worse quality, blurry, bad anatomy, 
 
 // Función para traducir texto usando el backend
 const translateText = async (text, targetLang) => {
-    const endpoint = "https://googleapi.sergiencorsanywhere.win/translate"; // Asumiendo que este es el endpoint de tu backend
+    const endpoint = "https://googleapi.sergiencorsanywhere.win:2053/translate"; // Asumiendo que este es el endpoint de tu backend
 
     const requestBody = {
         text: text,

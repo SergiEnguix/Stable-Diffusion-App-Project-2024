@@ -3,6 +3,7 @@ const fs = require('fs');
 const https = require('https');
 const bodyParser = require('body-parser');
 const { TranslationServiceClient } = require('@google-cloud/translate');
+const cors = require('cors');  // Importa CORS
 
 // Inicializar la aplicación Express
 const app = express();
@@ -18,6 +19,9 @@ const sslOptions = {
 const client = new TranslationServiceClient({
   keyFilename: 'C:/Users/Usuario/Desktop/ProyectoASIR2024/lively-marking-444405-j8-23b069398886.json',  // Ruta a tu archivo JSON de la cuenta de servicio
 });
+
+// Habilitar CORS para todas las rutas
+app.use(cors());  // Permite solicitudes desde cualquier origen
 
 // Usa body-parser para analizar las solicitudes JSON
 app.use(bodyParser.json());
