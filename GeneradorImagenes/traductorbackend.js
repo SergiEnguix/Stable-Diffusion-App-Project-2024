@@ -29,7 +29,15 @@ app.use(bodyParser.json());
 // Ruta para traducir texto
 app.post('/translate', async (req, res) => {
   try {
-    const { text, targetLanguage } = req.body;  // Esperamos que el cuerpo contenga 'text' y 'targetLanguage'
+    const { text } = req.body;  // Esperamos que el cuerpo contenga 'text'
+
+    // Validar si se pasa un texto
+    if (!text) {
+    return res.status(400).json({ error: "El texto es obligatorio" });
+    }
+
+    // Establecer directamente el idioma de destino como inglés ('en')
+    const targetLanguage = 'en';  // El código del idioma para inglés
 
     // Configuración de la solicitud de traducción
     const request = {
