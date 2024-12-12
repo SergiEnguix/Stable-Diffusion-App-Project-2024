@@ -37,6 +37,8 @@ if (!isset($_SESSION['user'])) {
             <label for="prompt">Descripción (Prompt):</label>
             <textarea id="prompt" rows="4" placeholder="Describe la imagen que deseas generar..." required></textarea>
 
+            <button type="button" id="translate-btn">Traducir al inglés</button> <!-- Botón de traducción -->
+
             <label for="checkpoint">Checkpoint:</label>
             <select id="checkpoint">
                 <option value="">Cargando modelos disponibles...</option>
@@ -70,12 +72,12 @@ if (!isset($_SESSION['user'])) {
                 <label for="seed">Semilla:</label>
                 <div class="seed-input-container">
                     <input type="text" id="seed" placeholder="Opcional (-1 para aleatoria)">
-                    <button type="button" id="reuse-seed-btn" class="reuse-btn">🔁 Copiar última semilla 🔁</button>
+                    <button type="button" id="reuse-seed-btn" class="reuse-btn">🔁 <strong>Copiar última semilla</strong> 🔁</button>
                 </div>
             </div>
 
 
-            <button type="submit">Generar Imagen</button>
+            <button type="submit"><strong>Generar Imagen</strong></button>
         </form>
         
         <div id="result">
