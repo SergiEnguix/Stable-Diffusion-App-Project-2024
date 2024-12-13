@@ -69,8 +69,6 @@ async function loadCheckpoints() {
 
 document.addEventListener('DOMContentLoaded', loadCheckpoints);
 
-import { readMetadata } from 'png-metadata';
-
 let lastSeed = -1;
 
 document.getElementById('reuse-seed-btn').addEventListener('click', function () {
@@ -81,12 +79,24 @@ document.getElementById('reuse-seed-btn').addEventListener('click', function () 
     }
 });
 
+// Función para extraer la semilla de los metadatos
+function extractSeedFromMetadata(base64Image) {
+    const binaryString = atob(base64Image);
+    const metadataRegex = /Seed: (\d+)/;
+    const seedMatch = metadataRegex.exec(binaryString);
+
+    if (seedMatch) {
+        return parseInt(seedMatch[1], 10);
+    }
+    return -1;
+}
+
 // Funcionalidad del formulario
 document.getElementById('image-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
     let prompt = document.getElementById('prompt').value;
-    prompt = `sfw, ${prompt}, highres, best quality, amazing quality, very aesthetic, absurdres`;
+    prompt = `sfw, ${prompt}, highres, best quality, amazing quality, very aesthetic, absurdres,`;
 
     const checkpoint = document.getElementById('checkpoint').value;
     const samplingMethod = document.getElementById('sampling-method').value;
@@ -127,18 +137,13 @@ document.getElementById('image-form').addEventListener('submit', async function 
 
         const data = await response.json();
         const imageBase64 = data.images[0];
-        const imageBuffer = Buffer.from(imageBase64, 'base64');
 
-        // Leer los metadatos de la imagen
-        const metadata = readMetadata(imageBuffer);
-        const seedRegex = /Seed: (\d+)/;
-        const seedMatch = seedRegex.exec(metadata);
-
-        if (seedMatch) {
-            lastSeed = parseInt(seedMatch[1], 10);
+        lastSeed = extractSeedFromMetadata(imageBase64);
+        if (lastSeed !== -1) {
+            console.log(`Semilla extraída: ${lastSeed}`);
+            document.getElementById('reuse-seed-btn').disabled = false;
         } else {
-            lastSeed = -1;
-            console.warn("No se encontró una semilla en los metadatos.");
+            console.warn("No se encontró semilla en los metadatos.");
         }
 
         const outputImage = document.getElementById('output-image');
@@ -148,8 +153,6 @@ document.getElementById('image-form').addEventListener('submit', async function 
         alert(`Error: ${error.message}`);
     }
 });
-
-
 
 // Ejemplo de traducción
 document.getElementById('translate-btn').addEventListener('click', async function () {
