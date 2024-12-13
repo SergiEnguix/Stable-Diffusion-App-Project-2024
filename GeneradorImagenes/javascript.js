@@ -124,9 +124,11 @@ document.getElementById('image-form').addEventListener('submit', async function 
         }
 
         const data = await response.json();
+        console.log(data); // Depurar la estructura de la respuesta
 
-        if (data.info && data.info.seed) {
-            lastSeed = data.info.seed;
+        if (data.seed) { // Ajusta según el formato real del backend
+            lastSeed = data.seed;
+            document.getElementById('reuse-seed-btn').disabled = false; // Habilitar el botón
         }
 
         const imageBase64 = data.images[0];
@@ -137,6 +139,7 @@ document.getElementById('image-form').addEventListener('submit', async function 
         alert(`Error: ${error.message}`);
     }
 });
+
 
 // Ejemplo de traducción
 document.getElementById('translate-btn').addEventListener('click', async function () {
