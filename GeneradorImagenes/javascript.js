@@ -69,6 +69,8 @@ async function loadCheckpoints() {
 
 document.addEventListener('DOMContentLoaded', loadCheckpoints);
 
+import { readMetadata } from 'png-metadata';
+
 let lastSeed = -1;
 
 document.getElementById('reuse-seed-btn').addEventListener('click', function () {
@@ -84,7 +86,7 @@ document.getElementById('image-form').addEventListener('submit', async function 
     e.preventDefault();
 
     let prompt = document.getElementById('prompt').value;
-    prompt = `sfw, ${prompt}`;
+    prompt = `sfw, ${prompt}, highres, best quality, amazing quality, very aesthetic, absurdres`;
 
     const checkpoint = document.getElementById('checkpoint').value;
     const samplingMethod = document.getElementById('sampling-method').value;
@@ -124,14 +126,21 @@ document.getElementById('image-form').addEventListener('submit', async function 
         }
 
         const data = await response.json();
-        console.log(data); // Depurar la estructura de la respuesta
+        const imageBase64 = data.images[0];
+        const imageBuffer = Buffer.from(imageBase64, 'base64');
 
-        if (data.seed) { // Ajusta según el formato real del backend
-            lastSeed = data.seed;
-            document.getElementById('reuse-seed-btn').disabled = false; // Habilitar el botón
+        // Leer los metadatos de la imagen
+        const metadata = readMetadata(imageBuffer);
+        const seedRegex = /Seed: (\d+)/;
+        const seedMatch = seedRegex.exec(metadata);
+
+        if (seedMatch) {
+            lastSeed = parseInt(seedMatch[1], 10);
+        } else {
+            lastSeed = -1;
+            console.warn("No se encontró una semilla en los metadatos.");
         }
 
-        const imageBase64 = data.images[0];
         const outputImage = document.getElementById('output-image');
         outputImage.src = `data:image/png;base64,${imageBase64}`;
         outputImage.hidden = false;
@@ -139,6 +148,7 @@ document.getElementById('image-form').addEventListener('submit', async function 
         alert(`Error: ${error.message}`);
     }
 });
+
 
 
 // Ejemplo de traducción
