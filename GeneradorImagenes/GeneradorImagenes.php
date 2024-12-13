@@ -79,6 +79,13 @@ if (!isset($_SESSION['user'])) {
 
             <button type="submit"><strong>Generar Imagen</strong></button>
         </form>
+
+        <div id="progress-container">
+            <label for="progress-bar">Progreso:</label>
+            <progress id="progress-bar" value="0" max="100"></progress>
+            <span id="progress-percentage">0%</span>
+        </div>
+
         
         <div id="result">
             <img id="output-image" src="" alt="Imagen generada" hidden>

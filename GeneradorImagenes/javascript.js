@@ -91,9 +91,61 @@ function extractSeedFromMetadata(base64Image) {
     return -1;
 }
 
+// Función para obtener el progreso desde la API
+async function fetchProgress() {
+    try {
+        const response = await fetch(`${sdApiUrl}/sdapi/v1/progress`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Origin': 'https://sergien-stablediffusion-app-b5cd08957a3c.herokuapp.com',
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al obtener el progreso: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error al consultar el progreso:", error);
+        return null;
+    }
+}
+
+// Función para iniciar el seguimiento del progreso
+function trackProgress() {
+    const progressBar = document.getElementById('progress-bar');
+    const progressPercentage = document.getElementById('progress-percentage');
+    const progressContainer = document.getElementById('progress-container');
+
+    // Mostrar la barra de progreso
+    progressContainer.style.display = "block";
+
+    const intervalId = setInterval(async () => {
+        const progressData = await fetchProgress();
+
+        if (progressData) {
+            const progressValue = Math.floor(progressData.progress * 100); // Convertir de 0-1 a porcentaje
+            progressBar.value = progressValue;
+            progressPercentage.textContent = `${progressValue}%`;
+
+            // Ocultar la barra si el progreso alcanza el 100%
+            if (progressValue >= 100) {
+                clearInterval(intervalId);
+                progressContainer.style.display = "none";
+            }
+        }
+    }, 1000); // Consultar cada segundo
+}
+
 // Funcionalidad del formulario
 document.getElementById('image-form').addEventListener('submit', async function (e) {
     e.preventDefault();
+
+    // Inicia el seguimiento del progreso antes de enviar la solicitud
+    trackProgress();
 
     let prompt = document.getElementById('prompt').value;
     prompt = `sfw, ${prompt}, highres, best quality, amazing quality, very aesthetic, absurdres,`;
