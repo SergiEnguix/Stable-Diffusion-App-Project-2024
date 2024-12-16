@@ -53,16 +53,6 @@ button:hover {
     background: #45a049;
 }
 
-#result {
-    margin-top: 2rem;
-    text-align: center;
-}
-
-#output-image {
-    max-width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
 
 #user-info {
     margin-bottom: 20px;
@@ -196,33 +186,39 @@ button:hover {
 #result {
     position: relative; 
     display: inline-block;
-}
-
-#prev-btn {
-    position: absolute; 
-    left: 0; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    display: none;
-}
-
-#next-btn {
-    position: absolute; 
-    right: 0; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    display: none;
+    width: 100%; /* Asegura que se ajuste bien el contenedor */
+    height: auto;
+    text-align: center;
 }
 
 #prev-btn, #next-btn {
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
     font-size: 18px;
+    z-index: 10; /* Para asegurarse de que los botones estén encima de la imagen */
+}
+
+#prev-btn {
+    left: 0;
+}
+
+#next-btn {
+    right: 0;
 }
 
 #prev-btn:hover, #next-btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+#output-image {
+    max-width: 80%; /* Ajusta el tamaño máximo de la imagen */
+    height: auto;
+    display: block; /* Asegura que la imagen se muestre como bloque */
+    margin: 0 auto; /* Centra la imagen */
 }
