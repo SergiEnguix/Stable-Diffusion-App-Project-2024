@@ -137,7 +137,7 @@ function trackProgress() {
                 progressContainer.style.display = "none";
             }
         }
-    }, 1000); // Consultar cada segundo
+    }, 5000); // Consultar cada 5 segundos
 }
 
 // Funcionalidad del formulario
