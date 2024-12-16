@@ -65,6 +65,8 @@ button:hover {
     height: auto;
     border: 1px solid #ccc;
     border-radius: 8px;
+    display: block;
+    margin: 0 auto;
 }
 
 #user-info {
