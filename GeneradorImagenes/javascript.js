@@ -150,6 +150,9 @@ document.getElementById('image-form').addEventListener('submit', async function 
             console.warn("No se encontró semilla en los metadatos.");
         }
 
+        const outputImage = document.getElementById('output-image');
+        outputImage.src = `data:image/png;base64,${imageBase64}`;  // <-- Esta línea EXISTE aquí
+        outputImage.hidden = false;
         
         // Crear una nueva etiqueta <img> para apilar la imagen generada
         const resultContainer = document.getElementById('result');
