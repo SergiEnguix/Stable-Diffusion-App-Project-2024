@@ -88,8 +88,10 @@ if (!isset($_SESSION['user'])) {
 
         
         <div id="result">
-            <img id="output-image" src="" alt="Imagen generada" hidden>
-        </div>
+    <button id="prev-btn">⬅️</button>
+    <img id="output-image" src="" alt="Imagen generada" hidden>
+    <button id="next-btn">➡️</button>
+</div>
     </main>
 
     <script src="javascript.js"></script>

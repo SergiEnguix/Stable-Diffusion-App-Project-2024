@@ -192,3 +192,37 @@ button:hover {
 #progress-bar {
     width: 100%;
 }
+
+#result {
+    position: relative; 
+    display: inline-block;
+}
+
+#prev-btn {
+    position: absolute; 
+    left: 0; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    display: none;
+}
+
+#next-btn {
+    position: absolute; 
+    right: 0; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    display: none;
+}
+
+#prev-btn, #next-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#prev-btn:hover, #next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
