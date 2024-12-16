@@ -140,43 +140,6 @@ function trackProgress() {
     }, 1000); // Consultar cada segundo
 }
 
-let generatedImages = []; // Array para almacenar las imágenes
-let currentIndex = -1; // Índice de la imagen actual
-
-// Referencias a los botones y a la imagen
-const outputImage = document.getElementById('output-image');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-
-// Función para actualizar la imagen visible
-function updateImageDisplay() {
-    if (generatedImages.length > 0 && currentIndex >= 0) {
-        outputImage.src = generatedImages[currentIndex];
-        outputImage.hidden = false;
-
-        // Mostrar u ocultar las flechas según el índice
-        prevBtn.style.visibility = currentIndex > 0 ? "visible" : "hidden";
-        nextBtn.style.visibility = currentIndex < generatedImages.length - 1 ? "visible" : "hidden";
-    }
-}
-
-
-// Evento del botón "flecha izquierda" (anterior)
-prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateImageDisplay();
-    }
-});
-
-// Evento del botón "flecha derecha" (siguiente)
-nextBtn.addEventListener('click', () => {
-    if (currentIndex < generatedImages.length - 1) {
-        currentIndex++;
-        updateImageDisplay();
-    }
-});
-
 // Funcionalidad del formulario
 document.getElementById('image-form').addEventListener('submit', async function (e) {
     e.preventDefault();

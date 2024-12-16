@@ -54,16 +54,14 @@ button:hover {
 }
 
 #result {
-    position: relative; 
-    display: inline-block;
-    text-align: center; /* Centra la imagen y los botones */
+    margin-top: 2rem;
+    text-align: center;
 }
 
 #output-image {
-    max-width: 80%; /* Ajusta el tamaño máximo de la imagen */
-    height: auto;
-    display: block; /* Asegura que la imagen se muestre como bloque */
-    margin: 0 auto; /* Centra la imagen */
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 #user-info {
@@ -193,24 +191,4 @@ button:hover {
 
 #progress-bar {
     width: 100%;
-}
-
-#navigation {
-    margin-top: 10px; /* Espacio entre la imagen y los botones */
-}
-
-#prev-btn, #next-btn {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    display: inline-block;
-    margin: 0 10px; /* Espacio entre las flechas */
-    visibility: hidden; /* Inicialmente los botones están ocultos */
-}
-
-#prev-btn:hover, #next-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
 }
