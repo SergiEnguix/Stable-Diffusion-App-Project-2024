@@ -114,32 +114,6 @@ async function fetchProgress() {
     }
 }
 
-// Función para iniciar el seguimiento del progreso
-function trackProgress() {
-    const progressBar = document.getElementById('progress-bar');
-    const progressPercentage = document.getElementById('progress-percentage');
-    const progressContainer = document.getElementById('progress-container');
-
-    // Mostrar la barra de progreso
-    progressContainer.style.display = "block";
-
-    const intervalId = setInterval(async () => {
-        const progressData = await fetchProgress();
-
-        if (progressData) {
-            const progressValue = Math.floor(progressData.progress * 100); // Convertir de 0-1 a porcentaje
-            progressBar.value = progressValue;
-            progressPercentage.textContent = `${progressValue}%`;
-
-            // Ocultar la barra si el progreso alcanza el 100%
-            if (progressValue >= 100) {
-                clearInterval(intervalId);
-                progressContainer.style.display = "none";
-            }
-        }
-    }, 15000); // Consultar cada 15 segundos
-}
-
 // Funcionalidad del formulario
 document.getElementById('image-form').addEventListener('submit', async function (e) {
     e.preventDefault();
