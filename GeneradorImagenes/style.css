@@ -54,19 +54,16 @@ button:hover {
 }
 
 #result {
-    margin-top: 2rem;
-    text-align: center;
-    position: relative;
+    position: relative; 
     display: inline-block;
+    text-align: center; /* Centra la imagen y los botones */
 }
 
 #output-image {
-    max-width: 80%;
+    max-width: 80%; /* Ajusta el tamaño máximo de la imagen */
     height: auto;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto;
+    display: block; /* Asegura que la imagen se muestre como bloque */
+    margin: 0 auto; /* Centra la imagen */
 }
 
 #user-info {
@@ -198,22 +195,8 @@ button:hover {
     width: 100%;
 }
 
-#prev-btn {
-    position: absolute; 
-    left: 0; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    display: none;
-    z-index: 10;
-}
-
-#next-btn {
-    position: absolute; 
-    right: 0; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    display: none;
-    z-index: 10;
+#navigation {
+    margin-top: 10px; /* Espacio entre la imagen y los botones */
 }
 
 #prev-btn, #next-btn {
@@ -223,6 +206,9 @@ button:hover {
     padding: 10px;
     cursor: pointer;
     font-size: 18px;
+    display: inline-block;
+    margin: 0 10px; /* Espacio entre las flechas */
+    visibility: hidden; /* Inicialmente los botones están ocultos */
 }
 
 #prev-btn:hover, #next-btn:hover {

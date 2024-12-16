@@ -155,10 +155,11 @@ function updateImageDisplay() {
         outputImage.hidden = false;
 
         // Mostrar u ocultar las flechas según el índice
-        prevBtn.style.display = currentIndex > 0 ? "block" : "none";
-        nextBtn.style.display = currentIndex < generatedImages.length - 1 ? "block" : "none";
+        prevBtn.style.visibility = currentIndex > 0 ? "visible" : "hidden";
+        nextBtn.style.visibility = currentIndex < generatedImages.length - 1 ? "visible" : "hidden";
     }
 }
+
 
 // Evento del botón "flecha izquierda" (anterior)
 prevBtn.addEventListener('click', () => {
