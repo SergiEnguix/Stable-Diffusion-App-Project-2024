@@ -118,9 +118,6 @@ async function fetchProgress() {
 document.getElementById('image-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    // Inicia el seguimiento del progreso antes de enviar la solicitud
-    trackProgress();
-
     let prompt = document.getElementById('prompt').value;
     prompt = `sfw, ${prompt}, highres, best quality, amazing quality, very aesthetic, absurdres,`;
 
