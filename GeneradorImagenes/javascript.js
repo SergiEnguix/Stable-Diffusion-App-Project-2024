@@ -158,7 +158,7 @@ document.getElementById('image-form').addEventListener('submit', async function 
         const resultContainer = document.getElementById('result');
         const newImage = document.createElement('img');
         newImage.src = `data:image/png;base64,${imageBase64}`;
-        newImage.alt = "Imagen generada";
+        newImage.class = "generated-image";
         newImage.style.marginTop = "10px"; // Espacio entre imágenes
         
         resultContainer.appendChild(newImage);

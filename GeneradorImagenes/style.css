@@ -58,9 +58,6 @@ button:hover {
     flex-direction: column; /* Apilar verticalmente */
     gap: 15px; /* Espacio entre imágenes */
     align-items: center;
-    max-width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 8px;
 }
 
 #output-image {
