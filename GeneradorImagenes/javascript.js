@@ -92,27 +92,27 @@ function extractSeedFromMetadata(base64Image) {
 }
 
 // Función para obtener el progreso desde la API
-async function fetchProgress() {
-    try {
-        const response = await fetch(`${sdApiUrl}/sdapi/v1/progress`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Origin': 'https://sergien-stablediffusion-app-b5cd08957a3c.herokuapp.com',
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`Error al obtener el progreso: ${response.status}`);
-        }
-
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error("Error al consultar el progreso:", error);
-        return null;
-    }
-}
+//async function fetchProgress() {
+//    try {
+//        const response = await fetch(`${sdApiUrl}/sdapi/v1/progress`, {
+//            method: 'GET',
+//            headers: {
+//                'Content-Type': 'application/json',
+//                'Origin': 'https://sergien-stablediffusion-app-b5cd08957a3c.herokuapp.com',
+//            }
+//        });
+//
+//        if (!response.ok) {
+//            throw new Error(`Error al obtener el progreso: ${response.status}`);
+//        }
+//
+//        const data = await response.json();
+//        return data;
+//    } catch (error) {
+//        console.error("Error al consultar el progreso:", error);
+//        return null;
+//    }
+//}
 
 // Funcionalidad del formulario
 document.getElementById('image-form').addEventListener('submit', async function (e) {
