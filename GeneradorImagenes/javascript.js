@@ -118,6 +118,10 @@ async function fetchProgress() {
 document.getElementById('image-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
+// Cambiar el texto del botón a "Generando imagen..."
+const submitButton = document.getElementById('submit-btn');
+    submitButton.textContent = "Generando imagen...";  // Texto del botón mientras se genera
+
     let prompt = document.getElementById('prompt').value;
     prompt = `sfw, ${prompt}, highres, best quality, amazing quality, very aesthetic, absurdres,`;
 
@@ -172,8 +176,12 @@ document.getElementById('image-form').addEventListener('submit', async function 
         const outputImage = document.getElementById('output-image');
         outputImage.src = `data:image/png;base64,${imageBase64}`;
         outputImage.hidden = false;
+        // Restaurar el texto del botón después de la generación
+        submitButton.textContent = "Generar imagen";  // Texto original del botón
     } catch (error) {
         alert(`Error: ${error.message}`);
+        // En caso de error, restaurar el texto del botón también
+        submitButton.textContent = "Generar imagen";  // Texto original del botón
     }
 });
 
