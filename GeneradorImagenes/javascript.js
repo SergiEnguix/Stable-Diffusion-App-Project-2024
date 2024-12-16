@@ -91,28 +91,32 @@ function extractSeedFromMetadata(base64Image) {
     return -1;
 }
 
-// Función para obtener el progreso desde la API
-//async function fetchProgress() {
-//    try {
-//        const response = await fetch(`${sdApiUrl}/sdapi/v1/progress`, {
-//            method: 'GET',
-//            headers: {
-//                'Content-Type': 'application/json',
-//                'Origin': 'https://sergien-stablediffusion-app-b5cd08957a3c.herokuapp.com',
-//            }
-//        });
-//
-//        if (!response.ok) {
-//            throw new Error(`Error al obtener el progreso: ${response.status}`);
-//        }
-//
-//        const data = await response.json();
-//        return data;
-//    } catch (error) {
-//        console.error("Error al consultar el progreso:", error);
-//        return null;
-//    }
-//}
+///////////////// FUNCIONALIDAD DESHABILITADA POR GENERAR PROBLEMAS DE RENDIMIENTO CON SD ///////////////////
+//                                                                                                         //
+// Función para obtener el progreso desde la API                                                           //
+//async function fetchProgress() {                                                                         //
+//    try {                                                                                                //
+//        const response = await fetch(`${sdApiUrl}/sdapi/v1/progress`, {                                  //
+//            method: 'GET',                                                                               //
+//            headers: {                                                                                   //
+//                'Content-Type': 'application/json',                                                      //
+//                'Origin': 'https://sergien-stablediffusion-app-b5cd08957a3c.herokuapp.com',              //
+//            }                                                                                            //
+//        });                                                                                              //
+//                                                                                                         //
+//        if (!response.ok) {                                                                              //
+//            throw new Error(`Error al obtener el progreso: ${response.status}`);                         //
+//        }                                                                                                //
+//                                                                                                         //
+//        const data = await response.json();                                                              //
+//        return data;                                                                                     //
+//    } catch (error) {                                                                                    //
+//        console.error("Error al consultar el progreso:", error);                                         //
+//        return null;                                                                                     //
+//    }                                                                                                    //
+//}                                                                                                        //
+//                                                                                                         //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Funcionalidad del formulario
 document.getElementById('image-form').addEventListener('submit', async function (e) {
@@ -120,7 +124,7 @@ document.getElementById('image-form').addEventListener('submit', async function 
 
 // Cambiar el texto del botón a "Generando imagen..."
 const submitButton = document.getElementById('submit-btn');
-    submitButton.textContent = "Generando imagen...";  // Texto del botón mientras se genera
+    submitButton.textContent = "Generando imagen. Espera un momento...";  // Texto del botón mientras se genera
 
     let prompt = document.getElementById('prompt').value;
     prompt = `sfw, ${prompt}, highres, best quality, amazing quality, very aesthetic, absurdres,`;
