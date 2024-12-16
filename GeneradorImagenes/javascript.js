@@ -119,7 +119,7 @@ document.getElementById('image-form').addEventListener('submit', async function 
     e.preventDefault();
 
 // Cambiar el texto del botón a "Generando imagen..."
-const submitButton = document.getElementById('submit');
+const submitButton = document.getElementById('submit-btn');
     submitButton.textContent = "Generando imagen...";  // Texto del botón mientras se genera
 
     let prompt = document.getElementById('prompt').value;

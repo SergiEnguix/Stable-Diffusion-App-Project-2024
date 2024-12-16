@@ -77,7 +77,7 @@ if (!isset($_SESSION['user'])) {
             </div>
 
 
-            <button type="submit"><strong>Generar Imagen</strong></button>
+            <button type="submit" id="submit-btn"><strong>Generar Imagen</strong></button>
         </form>
      
         <div id="result">
