@@ -6,7 +6,7 @@ const defaultNegativePrompt = "low quality, worse quality, blurry, bad anatomy, 
 
 // Función para traducir texto usando el backend
 const translateText = async (text, targetLang) => {
-    const endpoint = "https://googleapi.sergiencorsanywhere.win:2053/translate"; // Asumiendo que este es el endpoint de tu backend
+    const endpoint = "https://googleapi.sergiencorsanywhere.win:2053/translate";
 
     const requestBody = {
         text: text,
@@ -91,40 +91,13 @@ function extractSeedFromMetadata(base64Image) {
     return -1;
 }
 
-///////////////// FUNCIONALIDAD DESHABILITADA POR GENERAR PROBLEMAS DE RENDIMIENTO CON SD ///////////////////
-//                                                                                                         //
-// Función para obtener el progreso desde la API                                                           //
-//async function fetchProgress() {                                                                         //
-//    try {                                                                                                //
-//        const response = await fetch(`${sdApiUrl}/sdapi/v1/progress`, {                                  //
-//            method: 'GET',                                                                               //
-//            headers: {                                                                                   //
-//                'Content-Type': 'application/json',                                                      //
-//                'Origin': 'https://sergien-stablediffusion-app-b5cd08957a3c.herokuapp.com',              //
-//            }                                                                                            //
-//        });                                                                                              //
-//                                                                                                         //
-//        if (!response.ok) {                                                                              //
-//            throw new Error(`Error al obtener el progreso: ${response.status}`);                         //
-//        }                                                                                                //
-//                                                                                                         //
-//        const data = await response.json();                                                              //
-//        return data;                                                                                     //
-//    } catch (error) {                                                                                    //
-//        console.error("Error al consultar el progreso:", error);                                         //
-//        return null;                                                                                     //
-//    }                                                                                                    //
-//}                                                                                                        //
-//                                                                                                         //
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 // Funcionalidad del formulario
 document.getElementById('image-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
-// Cambiar el texto del botón a "Generando imagen..."
-const submitButton = document.getElementById('submit-btn');
-    submitButton.textContent = "Generando imagen. Espera un momento...";  // Texto del botón mientras se genera
+    // Cambiar el texto del botón a "Generando imagen..."
+    const submitButton = document.getElementById('submit-btn');
+    submitButton.textContent = "Generando imagen. Espera un momento...";
 
     let prompt = document.getElementById('prompt').value;
     prompt = `sfw, ${prompt}, highres, best quality, amazing quality, very aesthetic, absurdres,`;
@@ -178,23 +151,52 @@ const submitButton = document.getElementById('submit-btn');
         }
 
         const outputImage = document.getElementById('output-image');
-        outputImage.src = `data:image/png;base64,${imageBase64}`;
+        outputImage.src = `data:image/png;base64,${imageBase64}`;  // <-- Esta línea EXISTE aquí
         outputImage.hidden = false;
+        
+        // Verificar si ya existe el separador
+        function ensureHistorySeparator() {
+            const resultContainer = document.getElementById('result');
+            let historyLabel = document.getElementById('history-label');
+
+            // Si el separador no existe, añadirlo
+            if (!historyLabel) {
+            historyLabel = document.createElement('div');
+            historyLabel.id = 'history-label';
+            historyLabel.className = 'history-label';
+            historyLabel.textContent = 'Historial de imágenes generadas';
+
+            // Añadir el separador debajo de la última imagen generada
+            resultContainer.appendChild(historyLabel);
+            }
+        }
+
+        // Crear una nueva etiqueta <img> para apilar la imagen generada
+        const resultContainer = document.getElementById('result');
+        const newImage = document.createElement('img');
+        newImage.src = `data:image/png;base64,${imageBase64}`;
+        newImage.className = "generated-image";
+        newImage.style.marginTop = "10px"; // Espacio entre imágenes
+        
+        // Asegurar que el separador está presente antes de añadir nuevas imágenes al historial
+        ensureHistorySeparator();
+
+        resultContainer.appendChild(newImage);
+
         // Restaurar el texto del botón después de la generación
-        submitButton.textContent = "Generar imagen";  // Texto original del botón
+        submitButton.textContent = "Generar imagen";
     } catch (error) {
         alert(`Error: ${error.message}`);
-        // En caso de error, restaurar el texto del botón también
-        submitButton.textContent = "Generar imagen";  // Texto original del botón
+        submitButton.textContent = "Generar imagen"; // Restaurar el texto en caso de error
     }
 });
 
 // Ejemplo de traducción
 document.getElementById('translate-btn').addEventListener('click', async function () {
     const textToTranslate = document.getElementById('prompt').value;
-    const targetLang = 'en'; // Cambia esto según el idioma deseado
+    const targetLang = 'en';
 
-    const translatedText = await translateText(textToTranslate, targetLang);
+    const translatedText = await translateText(textToTranslate);
 
     if (translatedText) {
         document.getElementById('prompt').value = translatedText;

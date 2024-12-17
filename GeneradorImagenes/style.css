@@ -54,8 +54,10 @@ button:hover {
 }
 
 #result {
-    margin-top: 2rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column; /* Apilar verticalmente */
+    gap: 15px; /* Espacio entre imágenes */
+    align-items: center;
 }
 
 #output-image {
@@ -191,4 +193,24 @@ button:hover {
 
 #progress-bar {
     width: 100%;
+}
+
+.generated-image {
+    max-width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#history-label {
+    background-color: #4CAF50; /* Color verde */
+    color: white; /* Texto en blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px 0; /* Espaciado interno (vertical, horizontal) */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centra el texto */
+    margin: 20px 0 10px; /* Margen: arriba, horizontal, abajo */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.527); /* Sombra ligera */
 }
