@@ -154,6 +154,23 @@ document.getElementById('image-form').addEventListener('submit', async function 
         outputImage.src = `data:image/png;base64,${imageBase64}`;  // <-- Esta línea EXISTE aquí
         outputImage.hidden = false;
         
+        // Verificar si ya existe el separador
+        function ensureHistorySeparator() {
+            const resultContainer = document.getElementById('result');
+            let historyLabel = document.getElementById('history-label');
+
+            // Si el separador no existe, añadirlo
+            if (!historyLabel) {
+            historyLabel = document.createElement('div');
+            historyLabel.id = 'history-label';
+            historyLabel.className = 'history-label';
+            historyLabel.textContent = 'Historial de imágenes generadas';
+
+            // Añadir el separador debajo de la última imagen generada
+            resultContainer.appendChild(historyLabel);
+            }
+        }
+
         // Crear una nueva etiqueta <img> para apilar la imagen generada
         const resultContainer = document.getElementById('result');
         const newImage = document.createElement('img');
@@ -161,6 +178,9 @@ document.getElementById('image-form').addEventListener('submit', async function 
         newImage.className = "generated-image";
         newImage.style.marginTop = "10px"; // Espacio entre imágenes
         
+        // Asegurar que el separador está presente antes de añadir nuevas imágenes al historial
+        ensureHistorySeparator();
+
         resultContainer.appendChild(newImage);
 
         // Restaurar el texto del botón después de la generación
