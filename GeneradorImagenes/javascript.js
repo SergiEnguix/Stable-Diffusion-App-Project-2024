@@ -1,12 +1,13 @@
+//Direcciones IP para las conexiones a Stable Diffusion.
 const corsProxy = 'https://cors.sergiencorsanywhere.win:443/';
 const sdApiUrl = corsProxy + 'http://127.0.0.1:8443';
 
 // Negative prompt por defecto
 const defaultNegativePrompt = "low quality, worse quality, blurry, bad anatomy, bad proportions, watermark, signature, text, Blood, Bloodbath, Crucifixion, Bloody, Flesh, Bruises, Car crash, Corpse, Crucified, Cutting, Decapitate, Infested, Gruesome, Kill, Infected, Sadist, Slaughter, Teratoma, Tryphophobia, Wound, Cronenberg, Khorne, Cannibal, Cannibalism, Visceral, Guts, Bloodshot, Gory, Killing, Surgery, Vivisection, Massacre, Hemoglobin, Suicide, ahegao, pinup, ballgag, Playboy, Bimbo, pleasure, bodily fluids, pleasures, boudoir, rule34, brothel, seducing, dominatrix, seductive, erotic, seductive, fuck, sensual, Hardcore, sexy, Hentai, Shag, horny, shibari, incest, Smut, jav, succubus, Jerk off, transparent, submissive, dominant, nasty, indecent, legs spread, cussing, flashy, twerk, making love, voluptuous, naughty, wincest, orgy, Sultry, XXX, Bondage, Bdsm, Slavegirl, sex";
 
-// Función para traducir texto usando el backend
+// Función para traducir texto usando el "traductorbackend.js" y la API de Google Cloud.
 const translateText = async (text, targetLang) => {
-    const endpoint = "https://googleapi.sergiencorsanywhere.win:2053/translate";
+    const endpoint = "https://googleapi.sergiencorsanywhere.win:2053/translate"; //Endpoint del Google Cloud Translate.
 
     const requestBody = {
         text: text,
@@ -34,12 +35,12 @@ const translateText = async (text, targetLang) => {
     }
 };
 
-// Cargar los checkpoints disponibles
+// Función para obtener y cargar los checkpoints disponibles de mi Stable Diffusion.
 async function loadCheckpoints() {
     const checkpointSelect = document.getElementById('checkpoint');
 
     try {
-        const response = await fetch(`${sdApiUrl}/sdapi/v1/sd-models`, {
+        const response = await fetch(`${sdApiUrl}/sdapi/v1/sd-models`, { //Endpoint de modelos de Stable Diffusion.
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,6 +70,7 @@ async function loadCheckpoints() {
 
 document.addEventListener('DOMContentLoaded', loadCheckpoints);
 
+//Proceso para obtener la semilla de la imagen.
 let lastSeed = -1;
 
 document.getElementById('reuse-seed-btn').addEventListener('click', function () {
