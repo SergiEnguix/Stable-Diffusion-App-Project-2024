@@ -63,16 +63,17 @@ if (!isset($_SESSION['user'])) {
             <input type="number" id="cfg" min="1" max="20" step="0.5" value="6.5" required>
 
             <div class="resolution-buttons">
-                <button class="resolution-btn" data-width="832" data-height="1216" title="Retrato">
-                    🖼️ <span class="vertical-rect">⟨⟩</span>
+                <button class="resolution-btn" data-width="832" data-height="1216">
+                    <span class="vertical-rect"></span> Retrato
                 </button>
-                <button class="resolution-btn" data-width="1024" data-height="1024" title="Cuadrado">
-                    🖼️ <span class="square-rect">◼️</span>
+                <button class="resolution-btn" data-width="1024" data-height="1024">
+                    <span class="square-rect"></span> Cuadrado
                 </button>
-                <button class="resolution-btn" data-width="1216" data-height="832" title="Horizontal">
-                    🖼️ <span class="horizontal-rect">⟨⟩</span>
+                <button class="resolution-btn" data-width="1216" data-height="832">
+                    <span class="horizontal-rect"></span> Horizontal
                 </button>
             </div>
+
 
             <!-- Estos inputs ocultos son usados para enviar las dimensiones al servidor -->
             <input type="hidden" id="width" name="width" value="832">

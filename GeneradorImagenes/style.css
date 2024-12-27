@@ -209,9 +209,9 @@ button:hover {
 /* Contenedor de botones */
 .resolution-buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Cambiado para centrar los botones */
     margin-top: 1rem;
-    gap: 10px;
+    gap: 10px; /* Mantener separación uniforme */
 }
 
 /* Botones de resolución */
