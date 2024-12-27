@@ -62,11 +62,22 @@ if (!isset($_SESSION['user'])) {
             <label for="cfg">Escala CFG:</label>
             <input type="number" id="cfg" min="1" max="20" step="0.5" value="6.5" required>
 
-            <label for="width">Ancho (px):</label>
-            <input type="number" id="width" min="512" max="1536" step="64" value="1024" required>
+            <div class="resolution-buttons">
+                <button class="resolution-btn" data-width="832" data-height="1216" title="Retrato">
+                    🖼️ <span class="vertical-rect">⟨⟩</span>
+                </button>
+                <button class="resolution-btn" data-width="1024" data-height="1024" title="Cuadrado">
+                    🖼️ <span class="square-rect">◼️</span>
+                </button>
+                <button class="resolution-btn" data-width="1216" data-height="832" title="Horizontal">
+                    🖼️ <span class="horizontal-rect">⟨⟩</span>
+                </button>
+            </div>
 
-            <label for="height">Alto (px):</label>
-            <input type="number" id="height" min="512" max="1536" step="64" value="1024" required>
+            <!-- Estos inputs ocultos son usados para enviar las dimensiones al servidor -->
+            <input type="hidden" id="width" name="width" value="832">
+            <input type="hidden" id="height" name="height" value="1216">
+
 
             <div class="seed-container">
                 <label for="seed">Semilla:</label>
