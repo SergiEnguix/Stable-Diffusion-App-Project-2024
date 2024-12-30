@@ -63,13 +63,13 @@ if (!isset($_SESSION['user'])) {
             <input type="number" id="cfg" min="1" max="20" step="0.5" value="6.5" required>
 
             <div class="resolution-buttons">
-                <button class="resolution-btn" data-width="832" data-height="1216">
+                <button type="button" class="resolution-btn" data-width="832" data-height="1216">
                     <span class="vertical-rect"></span> Retrato
                 </button>
-                <button class="resolution-btn" data-width="1024" data-height="1024">
+                <button type="button" class="resolution-btn" data-width="1024" data-height="1024">
                     <span class="square-rect"></span> Cuadrado
                 </button>
-                <button class="resolution-btn" data-width="1216" data-height="832">
+                <button type="button" class="resolution-btn" data-width="1216" data-height="832">
                     <span class="horizontal-rect"></span> Horizontal
                 </button>
             </div>
