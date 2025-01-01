@@ -39,14 +39,14 @@ if (!isset($_SESSION['user'])) {
             <button type="button" id="translate-btn">Traducir al inglés</button> <!-- Botón de traducción -->
 
             <label class="form-label" for="checkpoint">Checkpoint:
-            <img src="question-icon.png" alt="Ayuda" class="tooltip" data-tooltip="Selecciona uno de los dos modelos: Realistico (RealVisXL) o Anime (NoobaiXL).">
+            <img src="question-icon.png" alt="?" class="tooltip" data-tooltip="Selecciona uno de los dos modelos: Realistico (RealVisXL) o Anime (NoobaiXL).">
             </label>
             <select id="checkpoint">
                 <option value="">Cargando modelos disponibles...</option>
             </select>
 
             <label class="form-label" for="sampling-method">Método de Muestreo (Sampling Method):
-            <img src="question-icon.png" alt="Ayuda" class="tooltip" data-tooltip="Determina el método que usará el modelo de IA para generar las imágenes.">
+            <img src="question-icon.png" alt="?" class="tooltip" data-tooltip="Determina el método que usará el modelo de IA para generar las imágenes.">
             </label>
             <select id="sampling-method">
                 <option value="Euler">Euler</option>
@@ -60,12 +60,12 @@ if (!isset($_SESSION['user'])) {
             </select>
 
             <label class="form-label" for="steps">Pasos:
-            <img src="question-icon.png" alt="Ayuda" class="tooltip" data-tooltip="Determina el número de iteraciones para generar la imagen. Más pasos pueden dar mayor calidad pero aumentan el tiempo de generación.">
+            <img src="question-icon.png" alt="?" class="tooltip" data-tooltip="Determina el número de iteraciones para generar la imagen. Más pasos pueden dar mayor calidad pero aumentan el tiempo de generación.">
             </label>
             <input type="number" id="steps" min="10" max="150" value="28" required>
 
             <label class="form-label" for="cfg">Escala CFG:
-            <img src="question-icon.png" alt="Ayuda" class="tooltip" data-tooltip="Controla la influencia de la descripción en la generación de la imagen. Valores más altos generan imágenes más similares a la descripción.">
+            <img src="question-icon.png" alt="?" class="tooltip" data-tooltip="Controla la influencia de la descripción en la generación de la imagen. Valores más altos generan imágenes más similares a la descripción.">
             </label>
             <input type="number" id="cfg" min="1" max="20" step="0.5" value="6.5" required>
 
@@ -91,7 +91,7 @@ if (!isset($_SESSION['user'])) {
 
             <div class="seed-container">
                 <label class="form-label" for="seed">Semilla:
-                <img src="question-icon.png" alt="Ayuda" class="tooltip" data-tooltip="Repetir la misma semilla llevará a resultados similares al de la imagen asociada a esta.">
+                <img src="question-icon.png" alt="?" class="tooltip" data-tooltip="Repetir la misma semilla llevará a resultados similares al de la imagen asociada a esta.">
                 </label>
                 <div class="seed-input-container">
                     <input type="text" id="seed" placeholder="Opcional (-1 para aleatoria)">
