@@ -33,18 +33,22 @@ if (!isset($_SESSION['user'])) {
         </div>
     </header>
     <main>
-        <form id="image-form">
             <label for="prompt">Descripción (Prompt):</label>
             <textarea id="prompt" rows="4" placeholder="Describe la imagen que deseas generar..." required></textarea>
 
             <button type="button" id="translate-btn">Traducir al inglés</button> <!-- Botón de traducción -->
 
+            <div class="form-group">
             <label for="checkpoint">Checkpoint:</label>
+            <img src="question-icon.png" alt="Ayuda" class="tooltip" title="Selecciona uno de los dos modelos: Realistico (RealVisXL) o Anime (NoobaiXL).">
             <select id="checkpoint">
                 <option value="">Cargando modelos disponibles...</option>
             </select>
+            </div>
 
+            <div class="form-group">
             <label for="sampling-method">Método de Muestreo (Sampling Method):</label>
+            <img src="question-icon.png" alt="Ayuda" class="tooltip" title="Determina el método que usará el modelo IA para generar las imágenes.">
             <select id="sampling-method">
                 <option value="Euler">Euler</option>
                 <option value="Euler a">Euler a (Recomendado)</option>
@@ -55,15 +59,22 @@ if (!isset($_SESSION['user'])) {
                 <option value="DPM++ 2S a">DPM++ 2S a</option>
                 <option value="DPM++ 2M">DPM++ 2M</option>
             </select>
+            </div>
 
+            <div class="form-group">
             <label for="steps">Pasos:</label>
+            <img src="question-icon.png" alt="Ayuda" class="tooltip" title="Determina el número de iteraciones para generar la imagen. Más pasos pueden dar mayor calidad pero aumentan el tiempo de generación.">
             <input type="number" id="steps" min="10" max="150" value="28" required>
+            </div>
 
+            <div class="form-group">
             <label for="cfg">Escala CFG:</label>
             <img src="question-icon.png" alt="Ayuda" class="tooltip" title="Controla la influencia de la descripción en la generación de la imagen. Valores más altos generan imágenes más similares a la descripción.">
             <input type="number" id="cfg" min="1" max="20" step="0.5" value="6.5" required>
+            </div>
 
             <div class="resolution-buttons">
+                <span><b>Selecciona el tipo de resolución de la imágen:</b></span>
                 <button type="button" class="resolution-btn" data-width="832" data-height="1216">
                     <span class="vertical-rect"></span> Retrato
                 </button>
@@ -83,6 +94,7 @@ if (!isset($_SESSION['user'])) {
 
             <div class="seed-container">
                 <label for="seed">Semilla:</label>
+                <img src="question-icon.png" alt="Ayuda" class="tooltip" title="Repetir la misma semilla llevará a resultados similares al de la imagen asociada a esta.">
                 <div class="seed-input-container">
                     <input type="text" id="seed" placeholder="Opcional (-1 para aleatoria)">
                     <button type="button" id="reuse-seed-btn" class="reuse-btn">🔁 <strong>Copiar última semilla</strong> 🔁</button>
