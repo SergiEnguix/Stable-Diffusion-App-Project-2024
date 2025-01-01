@@ -298,21 +298,19 @@ button.active {
     border-color: #45a049;
 }
 
-/* Contenedor de cada fila del formulario */
-.form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px; /* Espacio abajo */
-  }
-
-/* Estilo para el icono de ayuda */
-.tooltip {
-    width: 32px; /* Ajusta al tamaño de tu imagen */
-    height: 32px;
-    margin-left: 8px;
-    cursor: help;
+.form-label {
+    display: inline-flex; /* Coloca los elementos en línea */
+    align-items: center; /* Alinea verticalmente los elementos */
+    gap: 8px; /* Espacio entre el texto y el icono */
   }
   
+  .tooltip {
+    width: 28px; /* Tamaño de la imagen */
+    height: 28px;
+    cursor: help;
+    position: relative; /* Necesario para los pseudo-elementos ::after y ::before */
+  }
+
   /* Estilo del texto al pasar el cursor */
   .tooltip:hover::after {
     content: attr(title);
