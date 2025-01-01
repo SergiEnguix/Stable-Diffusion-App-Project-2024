@@ -33,18 +33,21 @@ if (!isset($_SESSION['user'])) {
         </div>
     </header>
     <main>
-        <form id="image-form">
             <label for="prompt">Descripción (Prompt):</label>
             <textarea id="prompt" rows="4" placeholder="Describe la imagen que deseas generar..." required></textarea>
 
             <button type="button" id="translate-btn">Traducir al inglés</button> <!-- Botón de traducción -->
 
-            <label for="checkpoint">Checkpoint:</label>
+            <label class="form-label" for="checkpoint">Checkpoint:
+            <img src="question-icon.png" alt="?" class="tooltip" title="Selecciona uno de los dos modelos: Realistico (RealVisXL) o Anime (NoobaiXL).">
+            </label>
             <select id="checkpoint">
                 <option value="">Cargando modelos disponibles...</option>
             </select>
 
-            <label for="sampling-method">Método de Muestreo (Sampling Method):</label>
+            <label class="form-label" for="sampling-method">Método de Muestreo (Sampling Method):
+            <img src="question-icon.png" alt="?" class="tooltip" title="Determina el método que usará el modelo de IA para generar las imágenes.">
+            </label>
             <select id="sampling-method">
                 <option value="Euler">Euler</option>
                 <option value="Euler a">Euler a (Recomendado)</option>
@@ -56,20 +59,40 @@ if (!isset($_SESSION['user'])) {
                 <option value="DPM++ 2M">DPM++ 2M</option>
             </select>
 
-            <label for="steps">Pasos:</label>
+            <label class="form-label" for="steps">Pasos:
+            <img src="question-icon.png" alt="?" class="tooltip" title="Determina el número de iteraciones para generar la imagen. Más pasos pueden dar mayor calidad pero aumentan el tiempo de generación.">
+            </label>
             <input type="number" id="steps" min="10" max="150" value="28" required>
 
-            <label for="cfg">Escala CFG:</label>
+            <label class="form-label" for="cfg">Escala CFG:
+            <img src="question-icon.png" alt="?" class="tooltip" title="Controla la influencia de la descripción en la generación de la imagen. Valores más altos generan imágenes más similares a la descripción.">
+            </label>
             <input type="number" id="cfg" min="1" max="20" step="0.5" value="6.5" required>
 
-            <label for="width">Ancho (px):</label>
-            <input type="number" id="width" min="512" max="1536" step="64" value="1024" required>
+            <div class="resolution-buttons-text">
+            <span><b>Selecciona el tipo de resolución de la imágen:</b></span>
+            <div class="resolution-buttons">
+                <button type="button" class="resolution-btn" data-width="832" data-height="1216">
+                    <span class="vertical-rect"></span> Retrato
+                </button>
+                <button type="button" class="resolution-btn" data-width="1024" data-height="1024">
+                    <span class="square-rect"></span> Cuadrado
+                </button>
+                <button type="button" class="resolution-btn" data-width="1216" data-height="832">
+                    <span class="horizontal-rect"></span> Horizontal
+                </button>
+            </div>
+            </div>
 
-            <label for="height">Alto (px):</label>
-            <input type="number" id="height" min="512" max="1536" step="64" value="1024" required>
+            <!-- Estos inputs ocultos son usados para enviar las dimensiones al servidor -->
+            <input type="hidden" id="width" name="width" value="832">
+            <input type="hidden" id="height" name="height" value="1216">
+
 
             <div class="seed-container">
-                <label for="seed">Semilla:</label>
+                <label class="form-label" for="seed">Semilla:
+                <img src="question-icon.png" alt="?" class="tooltip" title="Repetir la misma semilla llevará a resultados similares al de la imagen asociada a esta.">
+                </label>
                 <div class="seed-input-container">
                     <input type="text" id="seed" placeholder="Opcional (-1 para aleatoria)">
                     <button type="button" id="reuse-seed-btn" class="reuse-btn">🔁 <strong>Copiar última semilla</strong> 🔁</button>

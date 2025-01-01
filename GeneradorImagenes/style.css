@@ -160,6 +160,7 @@ button:hover {
 
 .reuse-btn {
     padding: 4px 8px; /* Tamaño reducido del botón */
+    margin: -8px 0;
     font-size: 12px; /* Tamaño de fuente más pequeño */
     cursor: pointer;
     background-color: #4CAF50;
@@ -204,4 +205,120 @@ button:hover {
     margin: 20px 0 10px; /* Margen: arriba, horizontal, abajo */
     width: 100%; /* Ocupa todo el ancho del contenedor */
     box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.527); /* Sombra ligera */
+}
+
+/* Estilo para todos los botones */
+button {
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Color de texto blanco */
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    padding: 12px 24px; /* Ajuste de relleno para mayor área de clic */
+    text-align: center; /* Centrado del texto */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 8px 0; /* Espaciado alrededor */
+    cursor: pointer; /* Cursor tipo mano */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Separación uniforme entre icono y texto */
+    transition: all 0.3s ease;
+}
+
+/* Estado hover para el botón */
+button:hover {
+    background-color: #45a049; /* Color de fondo más oscuro */
+    color: white; /* Texto blanco en hover */
+    border-color: #45a049; /* Color de borde en hover */
+}
+
+/* Estado activo para el botón */
+button.active {
+    background-color: #45a049; /* Fondo verde oscuro */
+    color: white; /* Texto blanco */
+    border-color: #45a049; /* Borde verde oscuro */
+}
+
+/* Estilo de los iconos en los botones */
+.vertical-rect,
+.horizontal-rect,
+.square-rect {
+    display: inline-block;
+    font-size: 1.5rem;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+}
+
+.vertical-rect {
+    width: 15px;
+    height: 30px;
+}
+
+.square-rect {
+    width: 25px;
+    height: 25px;
+}
+
+.horizontal-rect {
+    width: 30px;
+    height: 15px;
+}
+
+/* Estilo para los botones de resolución */
+.resolution-buttons {
+    display: flex;
+    justify-content: center; /* Centrado de los botones */
+    margin-top: 1rem;
+    gap: 10px; /* Espaciado uniforme entre los botones */
+}
+
+/* Botones de resolución con iconos */
+.resolution-btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    background-color: white;
+    color: #4CAF50;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Separación entre icono y texto */
+    transition: all 0.3s ease;
+}
+
+/* Hover para los botones de resolución */
+.resolution-btn:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Botones activos de resolución */
+.resolution-btn.active {
+    background-color: #45a049;
+    color: white;
+    border-color: #45a049;
+}
+
+.form-label {
+    display: inline-flex; /* Coloca los elementos en línea */
+    align-items: center; /* Alinea verticalmente los elementos */
+    gap: 8px; /* Espacio entre el texto y el icono */
+  }
+  
+  .tooltip {
+    width: 28px; /* Tamaño del icono */
+    height: 28px;
+    cursor: help;
+    position: relative; /* Necesario para pseudo-elementos */
+    display: inline-block; /* Para evitar problemas con imágenes */
+}
+
+/* Texto del tooltip personalizado */
+.tooltip:hover::after {
+    content: attr(title);
+}
+
+/* Triángulo debajo del tooltip */
+.tooltip:hover::before {
+    content: '';
 }

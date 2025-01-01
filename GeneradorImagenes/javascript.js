@@ -93,6 +93,27 @@ function extractSeedFromMetadata(base64Image) {
     return -1;
 }
 
+// Manejo de los botones de resolución
+document.querySelectorAll('.resolution-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        const widthInput = document.getElementById('width');
+        const heightInput = document.getElementById('height');
+
+        // Obtener los valores de los atributos data-width y data-height
+        const width = this.getAttribute('data-width');
+        const height = this.getAttribute('data-height');
+
+        // Asignar los valores seleccionados a los campos de entrada
+        widthInput.value = width;
+        heightInput.value = height;
+
+        // Actualizar el estado de los botones para reflejar la selección
+        document.querySelectorAll('.resolution-btn').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+
 // Funcionalidad del formulario
 document.getElementById('image-form').addEventListener('submit', async function (e) {
     e.preventDefault();
