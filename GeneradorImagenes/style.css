@@ -314,7 +314,7 @@ button.active {
 
   /* Estilo del texto al pasar el cursor */
   .tooltip:hover::after {
-    content: attr(title);
+    content: attr(data-tooltip);
     position: absolute;
     top: -30px; /* Ajusta según el espacio necesario */
     left: 50%;
