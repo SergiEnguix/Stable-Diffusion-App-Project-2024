@@ -138,9 +138,9 @@ button:hover {
 
 /* Estilos para contener el campo de semilla y el botón juntos */
 .seed-container {
-    margin-bottom: 15px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px; /* Espacio abajo */
 }
 
 .seed-input-container {
@@ -300,9 +300,9 @@ button.active {
 
 /* Contenedor de cada fila del formulario */
 .form-group {
-    margin-bottom: 15px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px; /* Espacio abajo */
   }
 
 /* Estilo para el icono de ayuda */
