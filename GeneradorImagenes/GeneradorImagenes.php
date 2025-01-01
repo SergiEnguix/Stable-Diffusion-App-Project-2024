@@ -60,6 +60,7 @@ if (!isset($_SESSION['user'])) {
             <input type="number" id="steps" min="10" max="150" value="28" required>
 
             <label for="cfg">Escala CFG:</label>
+            <span class="tooltip" title="Controla la influencia de la descripción en la generación de la imagen. Valores más altos generan imágenes más similares a la descripción.">?</span>
             <input type="number" id="cfg" min="1" max="20" step="0.5" value="6.5" required>
 
             <div class="resolution-buttons">
