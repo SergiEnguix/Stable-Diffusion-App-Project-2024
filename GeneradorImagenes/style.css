@@ -160,6 +160,7 @@ button:hover {
 
 .reuse-btn {
     padding: 4px 8px; /* Tamaño reducido del botón */
+    margin: -8px 0;
     font-size: 12px; /* Tamaño de fuente más pequeño */
     cursor: pointer;
     background-color: #4CAF50;

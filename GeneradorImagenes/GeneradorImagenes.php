@@ -90,8 +90,9 @@ if (!isset($_SESSION['user'])) {
 
 
             <div class="seed-container">
-                <label for="seed">Semilla:</label>
+                <label class="form-label" for="seed">Semilla:
                 <img src="question-icon.png" alt="Ayuda" class="tooltip" title="Repetir la misma semilla llevará a resultados similares al de la imagen asociada a esta.">
+                </label>
                 <div class="seed-input-container">
                     <input type="text" id="seed" placeholder="Opcional (-1 para aleatoria)">
                     <button type="button" id="reuse-seed-btn" class="reuse-btn">🔁 <strong>Copiar última semilla</strong> 🔁</button>
