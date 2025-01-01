@@ -38,14 +38,16 @@ if (!isset($_SESSION['user'])) {
 
             <button type="button" id="translate-btn">Traducir al inglés</button> <!-- Botón de traducción -->
 
-            <label for="checkpoint">Checkpoint:</label>
+            <label class="form-label" for="checkpoint">Checkpoint:
             <img src="question-icon.png" alt="Ayuda" class="tooltip" title="Selecciona uno de los dos modelos: Realistico (RealVisXL) o Anime (NoobaiXL).">
+            </label>
             <select id="checkpoint">
                 <option value="">Cargando modelos disponibles...</option>
             </select>
 
-            <label for="sampling-method">Método de Muestreo (Sampling Method):</label>
+            <label class="form-label" for="sampling-method">Método de Muestreo (Sampling Method):
             <img src="question-icon.png" alt="Ayuda" class="tooltip" title="Determina el método que usará el modelo de IA para generar las imágenes.">
+            </label>
             <select id="sampling-method">
                 <option value="Euler">Euler</option>
                 <option value="Euler a">Euler a (Recomendado)</option>
@@ -67,8 +69,9 @@ if (!isset($_SESSION['user'])) {
             </label>
             <input type="number" id="cfg" min="1" max="20" step="0.5" value="6.5" required>
 
+            <div class="resolution-buttons-text">
+            <span><b>Selecciona el tipo de resolución de la imágen:</b></span>
             <div class="resolution-buttons">
-                <span><b>Selecciona el tipo de resolución de la imágen:</b></span>
                 <button type="button" class="resolution-btn" data-width="832" data-height="1216">
                     <span class="vertical-rect"></span> Retrato
                 </button>
@@ -79,7 +82,7 @@ if (!isset($_SESSION['user'])) {
                     <span class="horizontal-rect"></span> Horizontal
                 </button>
             </div>
-
+            </div>
 
             <!-- Estos inputs ocultos son usados para enviar las dimensiones al servidor -->
             <input type="hidden" id="width" name="width" value="832">
