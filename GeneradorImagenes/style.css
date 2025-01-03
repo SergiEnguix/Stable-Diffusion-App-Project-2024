@@ -160,7 +160,6 @@ button:hover {
 
 .reuse-btn {
     padding: 4px 8px; /* Tamaño reducido del botón */
-    margin: -8px 0;
     font-size: 12px; /* Tamaño de fuente más pequeño */
     cursor: pointer;
     background-color: #4CAF50;
@@ -217,22 +216,6 @@ button:hover {
     text-align: center; /* Centrado del texto */
     font-size: 16px; /* Tamaño de fuente */
     margin: 8px 0; /* Espaciado alrededor */
-    cursor: pointer; /* Cursor tipo mano */
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Separación uniforme entre icono y texto */
-    transition: all 0.3s ease;
-}
-
-/* Estilo para todos los botones */
-.seed-button {
-    background-color: #4CAF50; /* Color de fondo verde */
-    color: white; /* Color de texto blanco */
-    border: 2px solid #4CAF50;
-    border-radius: 8px;
-    padding: 12px 24px; /* Ajuste de relleno para mayor área de clic */
-    text-align: center; /* Centrado del texto */
-    font-size: 16px; /* Tamaño de fuente */
     cursor: pointer; /* Cursor tipo mano */
     display: flex;
     align-items: center;
