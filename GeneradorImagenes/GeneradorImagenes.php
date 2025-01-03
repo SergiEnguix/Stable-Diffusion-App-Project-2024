@@ -95,7 +95,7 @@ if (!isset($_SESSION['user'])) {
                 </label>
                 <div class="seed-input-container">
                     <input type="text" id="seed" placeholder="Opcional (-1 para aleatoria)">
-                    <button class="seed-button" type="button" id="reuse-seed-btn" class="reuse-btn">🔁 <strong>Copiar última semilla</strong> 🔁</button>
+                    <button type="button" id="reuse-seed-btn" class="reuse-btn">🔁 <strong>Copiar última semilla</strong> 🔁</button>
                 </div>
             </div>
 
