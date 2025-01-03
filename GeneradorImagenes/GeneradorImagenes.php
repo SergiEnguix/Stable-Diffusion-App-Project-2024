@@ -28,7 +28,7 @@ if (!isset($_SESSION['user'])) {
         <div id="user-info" class="top-right">
             <span>Bienvenido, <strong><?php echo htmlspecialchars($_SESSION['user']); ?></strong></span>
             <form action="../logout.php" method="POST" style="display: inline;">
-            <button type="submit">Cerrar sesión</button>
+            <button class="normal-button" type="submit">Cerrar sesión</button>
             </form>
         </div>
     </header>
@@ -36,7 +36,7 @@ if (!isset($_SESSION['user'])) {
             <label for="prompt">Descripción (Prompt):</label>
             <textarea id="prompt" rows="4" placeholder="Describe la imagen que deseas generar..." required></textarea>
 
-            <button type="button" id="translate-btn">Traducir al inglés</button> <!-- Botón de traducción -->
+            <button class="normal-button" type="button" id="translate-btn">Traducir al inglés</button> <!-- Botón de traducción -->
 
             <label class="form-label" for="checkpoint">Checkpoint:
             <img src="question-icon.png" alt="?" class="tooltip" title="Selecciona uno de los dos modelos: Realistico (RealVisXL) o Anime (NoobaiXL).">
@@ -95,12 +95,12 @@ if (!isset($_SESSION['user'])) {
                 </label>
                 <div class="seed-input-container">
                     <input type="text" id="seed" placeholder="Opcional (-1 para aleatoria)">
-                    <button type="button" id="reuse-seed-btn" class="reuse-btn">🔁 <strong>Copiar última semilla</strong> 🔁</button>
+                    <button class="seed-button" type="button" id="reuse-seed-btn" class="reuse-btn">🔁 <strong>Copiar última semilla</strong> 🔁</button>
                 </div>
             </div>
 
 
-            <button type="submit" id="submit-btn"><strong>Generar Imagen</strong></button>
+            <button class="normal-button" type="submit" id="submit-btn"><strong>Generar Imagen</strong></button>
         </form>
      
         <div id="result">
