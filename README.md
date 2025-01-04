@@ -19,4 +19,5 @@ Cantidad de horas de uso de Stable Diffusion: +4000h
 
 
 Autor del proyecto: Sergi Enguix Peiró
+
 Año del proyecto: 2024-2025
