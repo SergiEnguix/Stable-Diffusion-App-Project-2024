@@ -40,21 +40,6 @@ const translateText = async (text, targetLang) => {
 };
 
 
-// === Funcionalidad para el botón de traducir prompt ===
-document.getElementById('translate-btn').addEventListener('click', async function () {
-    const textToTranslate = document.getElementById('prompt').value;                // Obtenemos el prompt a traducir.
-    const targetLang = 'en';                                                        // Idioma al que se traducirá el texto.
-
-    const translatedText = await translateText(textToTranslate);                    // Traducimos el texto usando la función "translateText" declarada anteriormente.
-
-    if (translatedText) {
-        document.getElementById('prompt').value = translatedText;                   // Sustituimos el campo del prompt con el texto traducido.
-    } else {
-        alert("Error al traducir el texto.");                                       // Mostramos un mensaje de error si la traducción falla.
-    }
-});
-
-
 // === Funcionalidad para cargar los modelos (checkpoints) disponibles. ===
 async function loadCheckpoints() {
     const checkpointSelect = document.getElementById('checkpoint');                 // Elemento HTML <select> donde se cargarán los modelos.
@@ -208,7 +193,7 @@ document.getElementById('image-form').addEventListener('submit', async function 
             }
         }
 
-        
+
         // === Funcionalidad para apilar las imágenes generadas en el historial ===
         const resultContainer = document.getElementById('result');
         const newImage = document.createElement('img');
@@ -224,5 +209,20 @@ document.getElementById('image-form').addEventListener('submit', async function 
     } catch (error) {
         alert(`Error: ${error.message}`);
         submitButton.textContent = "Generar imagen";                                // Restauramos el texto del botón si ha ocurrido un error.
+    }
+});
+
+
+// === Funcionalidad para el botón de traducir prompt ===
+document.getElementById('translate-btn').addEventListener('click', async function () {
+    const textToTranslate = document.getElementById('prompt').value;                // Obtenemos el prompt a traducir.
+    const targetLang = 'en';                                                        // Idioma al que se traducirá el texto.
+
+    const translatedText = await translateText(textToTranslate);                    // Traducimos el texto usando la función "translateText" declarada anteriormente.
+
+    if (translatedText) {
+        document.getElementById('prompt').value = translatedText;                   // Sustituimos el campo del prompt con el texto traducido.
+    } else {
+        alert("Error al traducir el texto.");                                       // Mostramos un mensaje de error si la traducción falla.
     }
 });
