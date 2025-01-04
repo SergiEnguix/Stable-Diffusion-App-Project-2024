@@ -33,7 +33,7 @@ if (!isset($_SESSION['user'])) {
         </div>
     </header>
     <main>
-        <form id="image-form"></form>
+        <form id="image-form" method="POST"></form>
             <label for="prompt">Descripción (Prompt):</label>
             <textarea id="prompt" rows="4" placeholder="Describe la imagen que deseas generar..." required></textarea>
 
